@@ -1,0 +1,93 @@
+⚙️ Step 1 — Use a Custom “Donation + Ownership” License
+
+Save this as a file named LICENSE.txt or LICENSE.md at the root of your Projects repository:
+
+de Mello & NemesisC64 Projects License — Donationware + Intellectual Property Notice
+Version 1.0 (October 2025)
+
+Copyright (c) 2025 Lexmilian de Mello and NemesisC64.
+All rights reserved.
+
+1. Ownership
+All programs, applications, code, scripts, assets, and documentation contained in this
+repository and its sub-repositories remain the exclusive intellectual property of
+Lexmilian de Mello and NemesisC64 (the Authors).  No transfer or assignment of rights
+is granted by downloading, viewing, or cloning this repository.
+
+2. Permitted Use
+You may:
+  • Read or review the source code for educational or personal inspiration.
+  • Download local copies for private, non-commercial evaluation.
+
+3. Donation Requirement for Active Use
+Any public, commercial, or redistributed use—including but not limited to running,
+hosting, compiling, or integrating the code into other software—requires a
+reasonable good-faith donation to the Authors via:
+
+    https://paypal.me/percarus
+
+Donations support continued development and affirm respect for the Authors’ work.
+
+4. Prohibited Use
+Without prior written consent, you may not sell, sublicense, publish, or distribute
+any portion of this repository for profit or in any commercial context.
+
+5. Attribution
+When referencing this work, credit must be given as:
+    “Created by Lexmilian de Mello and NemesisC64.”
+
+6. Warranty Disclaimer
+This software is provided “as is” and “as available,” without warranty of any kind,
+express or implied.  The Authors shall not be liable for any damages arising from
+use or inability to use the materials.
+
+7. Acceptance
+Cloning, copying, or executing any code from this repository signifies your
+acknowledgment and acceptance of these terms.
+
+— Lexmilian de Mello and NemesisC64
+
+⚙️ Step 2 — Add clear headers inside each sub-project
+
+At the top of major source files, add a small header such as:
+
+# © 2025 Lexmilian de Mello and NemesisC64
+# Licensed under the de Mello & NemesisC64 Projects License v1.0
+# See LICENSE.txt for details and donation requirements.
+
+
+or in other languages:
+
+/* (c) 2025 Lexmilian de Mello and NemesisC64
+   Licensed under the de Mello & NemesisC64 Projects License v1.0
+   See LICENSE.txt for details and donation requirements. */
+
+⚙️ Step 3 — Tell GitHub it’s a Custom License
+
+Create the repo (or open its root).
+
+Click Add file → Create new file.
+
+Name it LICENSE.txt.
+
+Paste the full text above.
+
+Commit directly to main.
+
+GitHub will display “License: Other” or “Custom”, which is fine—it simply means your license doesn’t match an OSI template.
+
+⚙️ Step 4 — Optional refinement for sub-projects
+
+If you ever want a sub-project to be open source, you can drop its own standard
+license (e.g., MIT) into that folder.
+Otherwise, all folders inherit the above proprietary/donation rule automatically.
+
+✅ Summary
+
+You and NemesisC64 keep 100 % of intellectual-property rights.
+
+Anyone using the software owes a reasonable donation to your PayPal link.
+
+GitHub will list it as Custom License.
+
+Include the same notice in each major code file.

@@ -1,0 +1,6 @@
+# Enforced by GitHub: place at repo root (.github/CODEOWNERS also works)
+# Default: everything
+* @EmployeeAlpha
+
+# Explicit subproject owners (optional, redundant while default applies)
+# /NemesisC64_Auditor_v1.0/** @EmployeeAlpha

@@ -1,0 +1,23 @@
+# Normalize line endings to LF in the repo; Git will handle checkout on Windows if configured.
+* text=auto eol=lf
+
+# Treat common binary formats as binary (no diffs)
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.zip binary
+*.7z binary
+*.rar binary
+*.tar binary
+*.gz binary
+*.mp3 binary
+*.wav binary
+
+# XAML, C#, and Python are text (explicit for clarity)
+*.xaml text
+*.cs   text diff
+*.py   text diff
+*.ps1  text

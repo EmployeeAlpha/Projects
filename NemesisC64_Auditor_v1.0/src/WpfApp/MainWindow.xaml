@@ -1,0 +1,157 @@
+﻿<Window x:Class="WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="NemesisC64 Auditor — v1.0"
+        Width="1024" Height="680"
+        Style="{StaticResource BaseWindowStyle}">
+  <Window.Resources>
+    <!-- Small helpers -->
+    <Style x:Key="SectionHeader" TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
+      <Setter Property="FontSize" Value="16"/>
+      <Setter Property="FontWeight" Value="SemiBold"/>
+      <Setter Property="Margin" Value="0,0,0,8"/>
+      <Setter Property="Foreground" Value="{StaticResource Brush.Text}"/>
+    </Style>
+    <Style x:Key="Card" TargetType="Border">
+      <Setter Property="Padding" Value="12"/>
+      <Setter Property="CornerRadius" Value="8"/>
+      <Setter Property="Background" Value="{StaticResource Brush.PanelAlt}"/>
+      <Setter Property="BorderBrush" Value="{StaticResource Brush.Border}"/>
+      <Setter Property="BorderThickness" Value="1"/>
+      <Setter Property="Margin" Value="0,10,0,0"/>
+    </Style>
+    <Style TargetType="Label">
+      <Setter Property="Foreground" Value="{StaticResource Brush.SubtleText}"/>
+      <Setter Property="Margin" Value="0,6,0,0"/>
+    </Style>
+  </Window.Resources>
+
+  <DockPanel LastChildFill="True">
+    <!-- Top command bar -->
+    <ToolBarTray DockPanel.Dock="Top">
+      <ToolBar Background="{StaticResource Brush.PanelAlt}">
+        <Button x:Name="btnScan" Content="_Run Audit" Width="120" />
+        <Separator/>
+        <Button x:Name="btnOpenReports" Content="Open _Reports" />
+        <Button x:Name="btnOpenLogs" Content="Open _Logs" />
+        <Separator/>
+        <Button x:Name="btnInfo" Content="_Info / About" />
+      </ToolBar>
+    </ToolBarTray>
+
+    <!-- Status bar -->
+    <StatusBar DockPanel.Dock="Bottom" Background="{StaticResource Brush.PanelAlt}">
+      <StatusBarItem>
+        <TextBlock x:Name="lblStatus" Text="Ready." />
+      </StatusBarItem>
+      <StatusBarItem HorizontalAlignment="Right">
+        <ProgressBar x:Name="progress" Width="200" Height="14" Minimum="0" Maximum="100" Value="0"/>
+      </StatusBarItem>
+    </StatusBar>
+
+    <!-- Main content -->
+    <Grid Margin="12">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="*"/>
+        <RowDefinition Height="140"/>
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="3*"/>
+        <ColumnDefinition Width="2*"/>
+      </Grid.ColumnDefinitions>
+
+      <!-- Left: Scan configuration -->
+      <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource Card}">
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+          </Grid.ColumnDefinitions>
+
+          <StackPanel Grid.Column="0" Margin="0,0,16,0">
+            <TextBlock Text="Target & Options" Style="{StaticResource SectionHeader}"/>
+            <Label Content="Quick search query (optional)" />
+            <TextBox x:Name="txtQuery" ToolTip="e.g., passwords, tokens, invoices, ID, sensitive files..." />
+            <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+              <CheckBox x:Name="chkUseTor" Content="Use Tor (where applicable)" VerticalAlignment="Center"/>
+              <CheckBox x:Name="chkAttachReport" Content="Attach report to email/webhook" Margin="16,0,0,0" VerticalAlignment="Center"/>
+            </StackPanel>
+          </StackPanel>
+
+          <StackPanel Grid.Column="1" Margin="0,0,16,0">
+            <TextBlock Text="Webhook Delivery (optional)" Style="{StaticResource SectionHeader}"/>
+            <Label Content="Webhook URL"/>
+            <TextBox x:Name="txtWebhook" ToolTip="https://hooks.example.com/xxxxx"/>
+            <Label Content="Shared secret / token (optional)"/>
+            <TextBox x:Name="txtWebhookSecret" />
+          </StackPanel>
+
+          <StackPanel Grid.Column="2">
+            <TextBlock Text="Email Fallback (optional)" Style="{StaticResource SectionHeader}"/>
+            <Label Content="To:"/>
+            <TextBox x:Name="txtEmailTo" ToolTip="recipient@example.com"/>
+            <Label Content="Subject:"/>
+            <TextBox x:Name="txtEmailSubject" Text="NemesisC64 Auditor Report"/>
+          </StackPanel>
+        </Grid>
+      </Border>
+
+      <!-- Left column: Live log/output -->
+      <Border Grid.Row="1" Grid.Column="0" Style="{StaticResource Card}">
+        <DockPanel>
+          <TextBlock Text="Live Output" Style="{StaticResource SectionHeader}" DockPanel.Dock="Top"/>
+          <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <TextBox x:Name="txtOutput"
+                     IsReadOnly="True"
+                     AcceptsReturn="True"
+                     VerticalScrollBarVisibility="Auto"
+                     TextWrapping="Wrap"
+                     MinHeight="180"/>
+          </ScrollViewer>
+        </DockPanel>
+      </Border>
+
+      <!-- Right column: Findings grid -->
+      <Border Grid.Row="1" Grid.Column="1" Style="{StaticResource Card}">
+        <DockPanel>
+          <TextBlock Text="Findings" Style="{StaticResource SectionHeader}" DockPanel.Dock="Top"/>
+          <ListView x:Name="lvFindings" Margin="0,4,0,0">
+            <ListView.View>
+              <GridView>
+                <GridViewColumn Header="Type" DisplayMemberBinding="{Binding Type}" Width="120"/>
+                <GridViewColumn Header="Detail" DisplayMemberBinding="{Binding Detail}" Width="260"/>
+                <GridViewColumn Header="Path/Source" DisplayMemberBinding="{Binding Location}" Width="220"/>
+              </GridView>
+            </ListView.View>
+          </ListView>
+        </DockPanel>
+      </Border>
+
+      <!-- Footer: ASCII + actions -->
+      <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource Card}">
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="240"/>
+          </Grid.ColumnDefinitions>
+
+          <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto" Height="110">
+            <TextBlock x:Name="txtAsciiFooter"
+                       FontFamily="Consolas"
+                       FontSize="12"
+                       TextWrapping="NoWrap"
+                       Text="(footer ascii will appear here after first run…)"/>
+          </ScrollViewer>
+
+          <StackPanel Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Right">
+            <Button x:Name="btnSaveReport" Content="Save Report…" />
+            <Button x:Name="btnCopySummary" Content="Copy Summary" />
+            <Button x:Name="btnClear" Content="Clear Output" />
+          </StackPanel>
+        </Grid>
+      </Border>
+    </Grid>
+  </DockPanel>
+</Window>

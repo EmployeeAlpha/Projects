@@ -1,0 +1,41 @@
+# ─────────────────────────────────────────────────────────────
+# Projects (monorepo root) — minimal, cross-project .gitignore
+# Keep project-specific ignores inside each subfolder.
+# ─────────────────────────────────────────────────────────────
+
+# OS clutter
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# Editor/IDE metadata (generic)
+.vscode/
+.idea/
+*.code-workspace
+*.iml
+*.swp
+*.swo
+
+# Archives & backup files
+*.zip
+*.7z
+*.rar
+*.tar
+*.gz
+*.bak
+*.old
+*.orig
+*.tmp
+
+# Node / Python generic caches (safe cross-project)
+node_modules/
+.cache/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+
+# Do NOT ignore language-specific build outputs at the root.
+# Each subproject (e.g., NemesisC64_Auditor_v1.0) controls its own ignore rules.

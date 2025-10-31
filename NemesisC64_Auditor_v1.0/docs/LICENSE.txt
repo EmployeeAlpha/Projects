@@ -1,0 +1,68 @@
+NemesisC64 Auditor — Version 1.0
+Hybrid WPF + Python bridge application
+Copyright © 2025  Lexmilian de Mello  (NemesisC64 / Percarus Research)
+
+───────────────────────────────────────────────────────────────────────────────
+LICENSE OVERVIEW
+───────────────────────────────────────────────────────────────────────────────
+
+This software is released under a permissive open-use license inspired by the
+MIT License, with custom attribution and ethical-use clauses.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the “Software”), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, subject to the following conditions:
+
+1. The above copyright notice and this permission notice shall be included
+   in all copies or substantial portions of the Software.
+
+2. The Software shall not be used for unethical, exploitative, or unlawful
+   surveillance or data exfiltration activities.
+
+3. Any derivative works must provide visible credit to
+   “NemesisC64 / Lexmilian de Mello” within documentation or about dialogs.
+
+4. The Software is provided “AS IS”, without warranty of any kind, express or
+   implied, including but not limited to the warranties of merchantability,
+   fitness for a particular purpose, and noninfringement. In no event shall
+   the authors or copyright holders be liable for any claim, damages, or other
+   liability, whether in an action of contract, tort, or otherwise, arising
+   from, out of, or in connection with the Software or the use or other
+   dealings in the Software.
+
+───────────────────────────────────────────────────────────────────────────────
+ADDITIONAL ATTRIBUTIONS
+───────────────────────────────────────────────────────────────────────────────
+
+Core Developer & Architect:   NemesisC64 (Lexmilian de Mello)
+Brand Owner:                  Percarus Research
+Language Stack:               .NET 8 (WPF) + Python 3.10+
+Vendor Integration:           Robin Engine (optional)
+Theme & Aesthetic:            Dark Minimalist — “Auditing Silence”
+
+ASCII Art © NemesisC64, 2025
+Quote & Poem Texts © Lexmilian de Mello, 2025
+
+───────────────────────────────────────────────────────────────────────────────
+ETHICAL USE NOTICE
+───────────────────────────────────────────────────────────────────────────────
+
+This project is intended for lawful research, privacy auditing, educational
+security testing, and digital introspection only.
+
+Any form of unauthorized intrusion, scraping, or surveillance is explicitly
+prohibited. The author encourages responsible disclosure and transparency in
+all usage contexts.
+
+───────────────────────────────────────────────────────────────────────────────
+SUMMARY
+───────────────────────────────────────────────────────────────────────────────
+
+In short:  
+Use it. Learn from it. Credit it. Do no harm.
+
+───────────────────────────────────────────────────────────────────────────────
+END OF LICENSE
+───────────────────────────────────────────────────────────────────────────────

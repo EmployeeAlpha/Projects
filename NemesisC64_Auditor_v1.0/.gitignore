@@ -1,0 +1,92 @@
+# ─────────────────────────────────────────────────────────────
+# NemesisC64 Auditor — .gitignore
+# Root ignore list for WPF (.NET) + Python hybrid repository
+# ─────────────────────────────────────────────────────────────
+
+# === Visual Studio & .NET build output ===
+bin/
+obj/
+publish/
+*.user
+*.suo
+*.vs/
+.vs/
+*.cache
+*.pdb
+*.dll
+*.exe
+*.log
+*.dbmdl
+*.opendb
+*.aps
+*.tmp
+*.bak
+*.old
+*.orig
+
+# === Python virtual environments & caches ===
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg
+*.egg-info/
+dist/
+build/
+venv/
+env/
+.venv/
+.env
+
+# === Reports & Logs (runtime data) ===
+/reports/*
+!/reports/.gitkeep
+/logs/*
+!/logs/.gitkeep
+
+# === Local OS clutter ===
+Thumbs.db
+.DS_Store
+ehthumbs.db
+desktop.ini
+
+# === Editor / IDE metadata ===
+.idea/
+*.iml
+*.swp
+*.swo
+*.sln.docstates
+*.vscode/
+*.code-workspace
+
+# === Backup & archives ===
+*.zip
+*.7z
+*.rar
+*.tar
+*.gz
+
+# === PowerShell & temporary scripts ===
+*.ps1~
+*.ps1.bak
+*.ps1.log
+
+# === Custom developer notes ===
+*.notes.txt
+*.todo.txt
+*.draft
+*.tmp
+
+# === Optional Robin Engine cache ===
+python/vendor/robin/.streamlit/
+python/vendor/robin/.github/
+python/vendor/robin/__pycache__/
+python/vendor/robin/*.pyc
+python/vendor/robin/temp/
+python/vendor/robin/output/
+python/vendor/robin/reports/
+python/vendor/robin/logs/
+
+# === Ignore everything in /reports and /logs except placeholder files ===
+!reports/.gitkeep
+!logs/.gitkeep

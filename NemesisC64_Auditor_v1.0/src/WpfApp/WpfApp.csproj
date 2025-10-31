@@ -1,0 +1,53 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- WPF on .NET 8 for Windows -->
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+
+    <!-- Nice-to-haves -->
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+
+    <!-- Ensure Win API availability -->
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+
+    <!-- Produce a single exe in bin/CONFIG/ -->
+    <AssemblyName>NemesisC64.Auditor</AssemblyName>
+    <RootNamespace>WpfApp</RootNamespace>
+  </PropertyGroup>
+
+  <!-- Copy repo-level folders into the output alongside the .exe -->
+  <!-- The WpfApp project lives in /src/WpfApp; repo root is two levels up -->
+  <ItemGroup>
+    <!-- Copy assets/ into output as assets/... -->
+    <Content Include="..\..\assets\**\*">
+      <Link>assets\%(RecursiveDir)%(Filename)%(Extension)</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+
+    <!-- Copy python/ into output as python/... -->
+    <Content Include="..\..\python\**\*">
+      <Link>python\%(RecursiveDir)%(Filename)%(Extension)</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <!-- Ensure XAML gets compiled as WPF pages and code-behind is compiled -->
+  <ItemGroup>
+    <Page Include="App.xaml" />
+    <Page Include="MainWindow.xaml" />
+    <Page Include="InfoWindow.xaml" />
+
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InfoWindow.xaml.cs">
+      <DependentUpon>InfoWindow.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>

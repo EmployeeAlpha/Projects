@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>NemesisC64 Auditor — Info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root{
+      --bg:#1e1f24; --panel:#262833; --border:#3a3d45; --text:#ececec; --muted:#b8b8b8;
+      --primary:#4b77be; --accent:#00c2a8; --warn:#f5a623; --ok:#43b581; --err:#e45454;
+      --radius:12px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; padding:24px; background:var(--bg); color:var(--text);
+      font-family: "Segoe UI", Roboto, Arial, Helvetica, sans-serif; line-height:1.55;
+    }
+    .wrap{max-width:980px; margin:0 auto}
+    h1,h2,h3{color:var(--primary); margin:0 0 10px}
+    h1{font-size:28px} h2{font-size:20px} h3{font-size:16px}
+    p{margin:8px 0 12px}
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .card{
+      background:var(--panel); border:1px solid var(--border); border-radius:var(--radius);
+      padding:16px 18px; margin:14px 0;
+    }
+    .grid{display:grid; gap:12px}
+    .kvs{display:grid; grid-template-columns: 160px 1fr; gap:8px 16px}
+    .kvs div.key{color:var(--muted)}
+    code, pre{
+      background:#1f212a; border:1px solid var(--border); border-radius:8px;
+      padding:3px 6px; font-family:Consolas, "Cascadia Code", monospace; font-size:12px;
+    }
+    pre{padding:10px; overflow:auto}
+    .pill{display:inline-block; padding:3px 8px; border-radius:999px; background:#1f212a; border:1px solid var(--border); color:var(--muted); font-size:12px}
+    .footer{color:var(--muted); margin-top:18px}
+    ul{margin:8px 0 8px 18px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>NemesisC64 Auditor</h1>
+    <p class="pill">Version 1.0 · WPF + Python Bridge</p>
+
+    <div class="card">
+      <h2>What is this?</h2>
+      <p>
+        A desktop auditor that orchestrates quick searches and collections via a Python bridge.
+        The WPF app calls <code>python/runner.py</code>, which can leverage an embedded vendor engine
+        at <code>python/vendor/robin/</code> if present. Results appear as a summary, findings list,
+        and a saved text report.
+      </p>
+    </div>
+
+    <div class="card grid">
+      <div>
+        <h2>Quick Start</h2>
+        <ol>
+          <li>Click <b>Run Audit</b>.</li>
+          <li>(Optional) Enter a <i>Quick search query</i>, a <i>Webhook URL</i>, or <i>Email</i> fallback.</li>
+          <li>Watch <b>Live Output</b> and review <b>Findings</b>.</li>
+          <li>Use <b>Save Report…</b> or <b>Open Reports</b> to view generated files.</li>
+        </ol>
+      </div>
+      <div>
+        <h2>Folders</h2>
+        <div class="kvs">
+          <div class="key">Reports</div><div><code>/reports/</code> (timestamped .txt reports)</div>
+          <div class="key">Logs</div><div><code>/logs/</code> (request/response JSON + stdout/stderr)</div>
+          <div class="key">Assets</div><div><code>/assets/</code> (footer ASCII &amp; this page)</div>
+          <div class="key">Python</div><div><code>/python/</code> (bridge &amp; vendor engines)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>How it works (high level)</h2>
+      <pre><code>[WPF UI] ──► creates input JSON
+    │
+    ├─► launches Python:  python/runner.py --input ... --output ...
+    │
+    ├─► runner.py tries vendor engine at python/vendor/robin/
+    │      └─ if found: runs search/scrape to collect findings
+    │      └─ else : returns a safe placeholder result
+    │
+    ├─► runner.py writes output JSON + /reports/auditor_report_*.txt
+    │
+    └─► WPF reads JSON, updates Live Output + Findings grid</code></pre>
+    </div>
+
+    <div class="card">
+      <h2>Webhook &amp; Email</h2>
+      <ul>
+        <li><b>Webhook:</b> If a URL is provided, runner tries a JSON POST (best-effort). Header <code>X-Auditor-Secret</code> is sent when a secret is set.</li>
+        <li><b>Email:</b> UI fields are placeholders for future SMTP integration. For now, export or save reports locally.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Notes &amp; Safety</h2>
+      <ul>
+        <li>Local-only by default; no network calls unless the vendor engine or webhook is used.</li>
+        <li>Limit findings to what you intend to process. Respect privacy, laws, and terms of use.</li>
+        <li>Tor checkbox signals vendor modules that a Tor-friendly path is preferred (if supported).</li>
+      </ul>
+    </div>
+
+    <p class="footer">
+      © 2025 Lexmilian de Mello / NemesisC64 · Built with care. “Auditing silence, searching traces.”
+    </p>
+  </div>
+</body>
+</html>

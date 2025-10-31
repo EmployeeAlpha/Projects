@@ -1,0 +1,60 @@
+﻿ ╔══════════════════════════════════════════════════════════════════════════╗
+║                                                                          ║
+║   ███╗   ██╗███████╗███╗   ███╗███████╗██╗███████╗ ██████╗ ██╗   ██╗     ║
+║   ████╗  ██║██╔════╝████╗ ████║██╔════╝██║██╔════╝██╔═══██╗╚██╗ ██╔╝     ║
+║   ██╔██╗ ██║█████╗  ██╔████╔██║█████╗  ██║███████╗██║   ██║ ╚████╔╝      ║
+║   ██║╚██╗██║██╔══╝  ██║╚██╔╝██║██╔══╝  ██║╚════██║██║   ██║  ╚██╔╝       ║
+║   ██║ ╚████║███████╗██║ ╚═╝ ██║██║     ██║███████║╚██████╔╝   ██║        ║
+║   ╚═╝  ╚═══╝╚══════╝╚═╝     ╚═╝╚═╝     ╚═╝╚══════╝ ╚═════╝    ╚═╝        ║
+║                                                                          ║
+║                  —  N  E  M  E  S  I  S  C  6  4  —                      ║
+║                                                                          ║
+║   “Auditing silence, searching traces; where code meets conscience.”     ║
+║   “Every log tells a story — some of them just whisper.”                 ║
+║   “The signal hides behind the noise… until you learn to listen.”        ║
+║                                                                          ║
+║   Version 1.0 — Compiled with spirit and precision.                      ║
+║   Repository:  /python/vendor/robin/                                     ║
+║   Reports:     /reports/                                                 ║
+║                                                                          ║
+║   © 2025  Lexmilian de Mello  /  NemesisC64                              ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+ 
+ +------------------+
+ |       ___        |
+ |   _  (,~ |   _   |
+ |  (____/  |____)  |
+ |  |||||    |||||  |
+ |  |||||    |||||  |
+ |  |||||\  /|||||  |
+ |  |||'//\/\\|||  |
+ |  |' m' /\ m |  |
+ |       /||\       |
+  \_              _/
+    -----92-KSR-'
+
+[Translation of above poem by Henry Wu ]
+""A very loose translation:
+
+        Separated by several thousand miles,
+        It feels like you're still here.
+        Softly press a few keys.
+        The electric message has already reached you.
+
+***************************************************************************
+*                                                                         *
+* -----  ----       \        ----   /    ""Believe in the good that beats  *
+*     |  |_       ------       /   /|     in every heart.  Believe in the *
+* -----  |-        |  |       /    -+-    light which warms every soul.   *
+* |      ----    |------/     \     |     And let hope never stray far    *
+* -----  |         ----      \ \   -+-    from your side."" -Blue Paladin  *
+*     |  |\/       |  |       \|                                          *
+*  \  |  |/\       |  |      \ |\                                |        *
+*   \--  /        /   \__     \| \        <======================+=====]  *
+*                                                                |        *
+*                                                                         *
+***************************************************************************
+
+Assisted By:   NemesisC64
+Property:      L. de Mello™

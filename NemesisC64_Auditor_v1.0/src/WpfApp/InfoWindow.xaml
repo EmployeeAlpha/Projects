@@ -1,0 +1,41 @@
+﻿<Window x:Class="WpfApp.InfoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="About — NemesisC64 Auditor"
+        Width="820" Height="620"
+        Style="{StaticResource BaseWindowStyle}">
+  <Grid Margin="10">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
+
+    <!-- Header -->
+    <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,0,0,8">
+      <TextBlock Text="About / Info" FontSize="18" FontWeight="SemiBold"
+                 VerticalAlignment="Center"/>
+      <Separator Margin="12,0,12,0" Width="1" />
+      <TextBlock Text="Read from assets/info_text.html" Foreground="{StaticResource Brush.SubtleText}"
+                 VerticalAlignment="Center"/>
+    </StackPanel>
+
+    <!-- HTML viewer -->
+    <Border Grid.Row="1"
+            Background="{StaticResource Brush.PanelAlt}"
+            BorderBrush="{StaticResource Brush.Border}"
+            BorderThickness="1"
+            CornerRadius="6">
+      <!-- WPF's WebBrowser is IE-based; fine for local HTML rendering -->
+      <WebBrowser x:Name="browser" />
+    </Border>
+
+    <!-- Footer actions -->
+    <DockPanel Grid.Row="2" Margin="0,8,0,0">
+      <StackPanel Orientation="Horizontal" DockPanel.Dock="Right">
+        <Button x:Name="btnOpenFile" Content="Open File Location" Margin="0,0,8,0"/>
+        <Button x:Name="btnClose" Content="Close" />
+      </StackPanel>
+    </DockPanel>
+  </Grid>
+</Window>
